@@ -22,14 +22,11 @@ app.get('/', async (req, res) => {
     function createTable(data) {
         const table = document.createElement("table");
         data.forEach(row => {
-            const tr = document.createElement("tr");
             Object.values(row).forEach(cellData => {
-                const td = document.createElement("td");
-                const text = document.createTextNode(cellData);
-                td.appendChild(text);
-                tr.appendChild(td);
+                document.createElement("td").appendChild(text);
+                document.createTextNode(cellData).appendChild(td);
             });
-            table.appendChild(tr);
+            table.appendChild(document.createElement("tr"));
         });
         return table;
     }
